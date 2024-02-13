@@ -24,19 +24,19 @@ resource "aws_instance" "AutomationInstance" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("C:/Users/SuperMan/Desktop/Kp.pem")
+      private_key = file("${path.module}/Kp.pem")
       host        = self.public_ip
     }
   }
 
   provisioner "file" {
-    source      = "C:/Users/SuperMan/Desktop/Railway-Management-master"
-    destination = "/home/ec2-user/Railway-Management-master"
+    source      = "${path.module}"
+    destination = "/home/ec2-user/RailProject"
     
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("C:/Users/SuperMan/Desktop/Kp.pem")
+      private_key = file("${path.module}/Kp.pem")
       host        = self.public_ip
     }
   }
