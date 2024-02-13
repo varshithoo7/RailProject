@@ -30,7 +30,7 @@ resource "aws_instance" "AutomationInstance" {
   }
 
   provisioner "file" {
-    source      = "C:/Users/SuperMan/Desktop/RailProject/*"
+    source      = "C:/Users/SuperMan/Desktop/RailProject"
     destination = "/home/ec2-user/RailProject"
     
     connection {
