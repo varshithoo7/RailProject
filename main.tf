@@ -15,6 +15,7 @@ resource "aws_instance" "AutomationInstance" {
   provisioner "remote-exec" {
     inline = [
       "#!/bin/bash",
+      "sudo yum install jq",
       "sudo yum update -y",
       "sudo yum install python3 -y",
       "sudo yum install python3-pip -y",
