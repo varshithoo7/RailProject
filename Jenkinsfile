@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+    stages {
     stage('Checkout') {
     steps {
         // No git checkout command here since it's configured in Jenkins job configuration
@@ -32,3 +33,4 @@ pipeline {
         }
     }
 
+}
