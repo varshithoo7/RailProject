@@ -41,8 +41,21 @@ resource "aws_instance" "AutomationInstance" {
       host        = self.public_ip
     }
   }
-}
 
+  provisioner "remote-exec" {
+    inline = [
+      "cd /home/ec2-user/RailProject", // Change directory to RailProject
+      "python3 Main.py" // Run Python script
+    ]
+  
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("C:/Users/SuperMan/Desktop/Kp.pem")
+      host        = self.public_ip
+    }
+  }
+}
 
 output "public_ip" {
   value = aws_instance.AutomationInstance.public_ip
