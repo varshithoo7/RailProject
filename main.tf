@@ -41,9 +41,8 @@ resource "aws_instance" "AutomationInstance" {
       host        = self.public_ip
     }
   }
-
+}
 
 output "public_ip" {
   value = aws_instance.AutomationInstance.public_ip
-}
 }
