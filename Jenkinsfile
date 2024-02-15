@@ -48,13 +48,13 @@ pipeline {
     }
 
      post {
-       
+        always {
             // Change directory to RailProject
             dir('RailProject') {
                 // Run Main.py using Python 3
                 sh 'python3 Main.py'
             }
-        
+        }
     }
 }
 
