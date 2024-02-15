@@ -40,7 +40,7 @@ pipeline {
                 {
                     // Use SSH Agent plugin to SSH into the instance
             sshagent(['AWS_SSH_CREDENTIALS_ID']) {
-                        sh "ssh -i C:/Users/SuperMan/Desktop/Kp.pem ec2-user@${PUBLIC_IP}"
+                        sh "ssh -vvv -i C:/Users/SuperMan/Desktop/Kp.pem ec2-user@${PUBLIC_IP}"
         }
             }
         }
@@ -48,13 +48,13 @@ pipeline {
     }
 
      post {
-        always {
+       
             // Change directory to RailProject
             dir('RailProject') {
                 // Run Main.py using Python 3
                 sh 'python3 Main.py'
             }
-        }
+        
     }
 }
 
